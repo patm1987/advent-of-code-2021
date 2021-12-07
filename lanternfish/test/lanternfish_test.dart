@@ -12,4 +12,16 @@ void main() {
     lanternfish.advance(1);
     expect(lanternfish.state, [0, 1, 2]);
   });
+
+  test('spawns', () {
+    var lanternfish = Lanternfish([0]);
+    lanternfish.advance(1);
+    expect(lanternfish.state, [6, 8]);
+  });
+
+  test('advances multiple days', () {
+    var lanternfish = Lanternfish([1, 2, 3]);
+    lanternfish.advance(2);
+    expect(lanternfish.state, [6, 0, 1, 8]);
+  });
 }
