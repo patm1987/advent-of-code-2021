@@ -32,4 +32,38 @@ void main() {
     var lanternfish = Lanternfish.parse(input[0]);
     expect(lanternfish.state, [3, 4, 3, 1, 2]);
   });
+
+  test('runs sample', () async {
+    var input = await File("inputs/sample.txt").readAsLines();
+    var lanternfish = Lanternfish.parse(input[0]);
+    lanternfish.advance(18);
+    expect(lanternfish.state, [
+      6,
+      0,
+      6,
+      4,
+      5,
+      6,
+      0,
+      1,
+      1,
+      2,
+      6,
+      0,
+      1,
+      1,
+      1,
+      2,
+      2,
+      3,
+      3,
+      4,
+      6,
+      7,
+      8,
+      8,
+      8,
+      8
+    ]);
+  });
 }
