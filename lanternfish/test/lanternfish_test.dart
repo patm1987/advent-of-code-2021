@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:lanternfish/lanternfish.dart';
 import 'package:test/test.dart';
 
@@ -23,5 +25,11 @@ void main() {
     var lanternfish = Lanternfish([1, 2, 3]);
     lanternfish.advance(2);
     expect(lanternfish.state, [6, 0, 1, 8]);
+  });
+
+  test('reads initial state', () async {
+    var input = await File("inputs/sample.txt").readAsLines();
+    var lanternfish = Lanternfish.parse(input[0]);
+    expect(lanternfish.state, [3, 4, 3, 1, 2]);
   });
 }

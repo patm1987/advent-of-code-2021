@@ -2,7 +2,7 @@ class Lanternfish {
   static const int _spawnDelay = 6;
   static const int _initialSpawnDelay = 8;
 
-  List<int> _state;
+  final List<int> _state;
 
   Lanternfish(List<int> startingState) : _state = startingState;
 
@@ -26,5 +26,9 @@ class Lanternfish {
     if (newFish > 0) {
       _state.addAll(List.filled(newFish, _initialSpawnDelay));
     }
+  }
+
+  factory Lanternfish.parse(String input) {
+    return Lanternfish(input.split(',').map((e) => int.parse(e)).toList());
   }
 }
