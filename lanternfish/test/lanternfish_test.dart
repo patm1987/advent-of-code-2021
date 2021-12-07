@@ -40,10 +40,10 @@ void main() {
     expect(lanternfish.count, 26);
   });
 
-  // test("Satisfies second example", () async {
-  //   var input = await File("inputs/sample.txt").readAsLines();
-  //   var lanternfish = Lanternfish.parse(input[0]);
-  //   lanternfish.advance(256);
-  //   expect(lanternfish.state.length, 26984457539);
-  // });
+  test("Satisfies second example", () async {
+    var input = await File("inputs/sample.txt").readAsLines();
+    var lanternfish = Lanternfish.parse(input[0]);
+    lanternfish.advance(256);
+    expect(lanternfish.count, 26984457539);
+  });
 }

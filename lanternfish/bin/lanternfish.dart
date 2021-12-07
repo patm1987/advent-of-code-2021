@@ -24,5 +24,5 @@ Future<void> main(List<String> arguments) async {
   var input = await File(inputFile).readAsLines();
   var lanternfish = Lanternfish.parse(input[0]);
   lanternfish.advance(days);
-  print("Count: ${lanternfish.state.length}");
+  print("Count: ${lanternfish.count}");
 }

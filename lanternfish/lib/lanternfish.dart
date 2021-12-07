@@ -2,12 +2,24 @@ class Lanternfish {
   static const int _spawnDelay = 6;
   static const int _initialSpawnDelay = 8;
 
-  final List<int> _state;
+  // each day gets a bucket
+  final List<int> _state = List.filled(_initialSpawnDelay + 1, 0);
 
-  Lanternfish(List<int> startingState) : _state = startingState;
+  Lanternfish(List<int> startingState) {
+    for (var fish in startingState) {
+      // add the fish to the right bucket
+      _state[fish]++;
+    }
+  }
 
   Iterable<int> get state => _state;
-  int get count => _state.length;
+  int get count {
+    int sum = 0;
+    for (var fish in _state) {
+      sum += fish;
+    }
+    return sum;
+  }
 
   void advance(int days) {
     for (var i = 0; i < days; i++) {
@@ -16,17 +28,17 @@ class Lanternfish {
   }
 
   void _advance() {
-    int newFish = 0;
-    for (int i = 0; i < _state.length; i++) {
-      _state[i]--;
-      if (_state[i] < 0) {
-        _state[i] = _spawnDelay;
-        newFish++;
-      }
+    var newFish = _state[0];
+    // shift all the counts over
+    for (int i = 1; i < _state.length; i++) {
+      _state[i - 1] = _state[i];
     }
-    if (newFish > 0) {
-      _state.addAll(List.filled(newFish, _initialSpawnDelay));
-    }
+
+    // merge the fish that just spawned with the incoming fish
+    _state[_spawnDelay] += newFish;
+
+    // add more incoming fish
+    _state[_initialSpawnDelay] = newFish;
   }
 
   factory Lanternfish.parse(String input) {
