@@ -7,6 +7,7 @@ class Lanternfish {
   Lanternfish(List<int> startingState) : _state = startingState;
 
   Iterable<int> get state => _state;
+  int get count => _state.length;
 
   void advance(int days) {
     for (var i = 0; i < days; i++) {

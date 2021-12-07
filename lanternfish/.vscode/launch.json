@@ -8,7 +8,7 @@
             "name": "lanternfish",
             "request": "launch",
             "type": "dart",
-            "args": ["-i", "inputs/input.txt", "-d", "80"],
+            "args": ["-i", "inputs/input.txt", "-d", "256"],
             "program": "bin/lanternfish.dart"
         }
     ]
