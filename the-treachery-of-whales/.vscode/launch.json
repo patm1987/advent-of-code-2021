@@ -8,7 +8,7 @@
             "name": "the-treachery-of-whales",
             "request": "launch",
             "type": "dart",
-            "args": ["inputs/sample.txt"],
+            "args": ["inputs/input.txt"],
             "program": "bin/the_treachery_of_whales.dart"
         }
     ]
