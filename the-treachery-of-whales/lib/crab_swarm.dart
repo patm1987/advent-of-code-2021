@@ -22,7 +22,7 @@ class CrabSwarm {
     // the number of crabs in it
     for (int target = 0; target < costs.length; target++) {
       for (int test = 0; test < costs.length; test++) {
-        costs[target] += (test - target).abs() * positions[test];
+        costs[target] += computeCost((test - target).abs()) * positions[test];
       }
     }
 
@@ -34,6 +34,14 @@ class CrabSwarm {
     }
 
     _optimalCost = costs[_optimalPosition];
+  }
+
+  int computeCost(int distance) {
+    int sum = 0;
+    for (int i = 1; i <= distance; i++) {
+      sum += i;
+    }
+    return sum;
   }
 
   factory CrabSwarm.parse(String input) {
