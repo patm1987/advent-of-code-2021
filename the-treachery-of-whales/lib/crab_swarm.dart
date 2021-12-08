@@ -36,6 +36,10 @@ class CrabSwarm {
     _optimalCost = costs[_optimalPosition];
   }
 
+  factory CrabSwarm.parse(String input) {
+    return CrabSwarm(input.split(',').map((e) => int.parse(e)).toList());
+  }
+
   int get optimalPosition => _optimalPosition;
 
   int get optimalCost => _optimalCost;
