@@ -1,5 +1,6 @@
 class CrabSwarm {
   int _optimalPosition = 0;
+  int _optimalCost = 0;
 
   CrabSwarm(List<int> crabs) {
     List<int> positions = [];
@@ -31,7 +32,11 @@ class CrabSwarm {
         _optimalPosition = i;
       }
     }
+
+    _optimalCost = costs[_optimalPosition];
   }
 
   int get optimalPosition => _optimalPosition;
+
+  int get optimalCost => _optimalCost;
 }

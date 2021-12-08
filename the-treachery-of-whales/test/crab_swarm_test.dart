@@ -7,4 +7,9 @@ void main() {
     var crabSwarm = CrabSwarm([16, 1, 2, 0, 4, 2, 7, 1, 2, 14]);
     expect(crabSwarm.optimalPosition, 2);
   });
+
+  test('Test computes cost', () {
+    var crabSwarm = CrabSwarm([16, 1, 2, 0, 4, 2, 7, 1, 2, 14]);
+    expect(crabSwarm.optimalCost, 37);
+  });
 }
