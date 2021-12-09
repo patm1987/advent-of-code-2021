@@ -5,6 +5,7 @@
 * Day 5: hydrothermal-venture
 * Day 6: lanternfish
 * Day 7: the-treachery-of-whales
+* Day 8: seven-segment-search
 
 This is a repository containing solutions for the 2021 Advent of Code
 (https://adventofcode.com/).
